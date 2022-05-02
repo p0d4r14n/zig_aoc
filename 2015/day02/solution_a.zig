@@ -3,9 +3,9 @@ const input = @embedFile("./input.txt");
 const expect = std.testing.expect;
 
 fn calculateSquareFeet(length: i32, width: i32, height: i32) i32 {
-    const sides: [3]i32 = .{length * width, width * height, height * length};
+    const sides: [3]i32 = .{ length * width, width * height, height * length };
     var smallest: i32 = std.math.maxInt(i32);
-    for (sides) | side | {
+    for (sides) |side| {
         if (side < smallest) {
             smallest = side;
         }
@@ -36,9 +36,9 @@ pub fn main() void {
 }
 
 test "A present with dimensions `2x3x4` requires a total of `58` square feet" {
-   try expect(calculateSquareFeet(2, 3, 4) == 58);
+    try expect(calculateSquareFeet(2, 3, 4) == 58);
 }
 
 test "A present with dimensions `1x1x10` requires a total of `43` square feet" {
-   try expect(calculateSquareFeet(1, 1, 10) == 43);
+    try expect(calculateSquareFeet(1, 1, 10) == 43);
 }

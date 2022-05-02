@@ -24,7 +24,7 @@ fn bubbleSort(comptime length: usize, data: [length]i32) [length]i32 {
 }
 
 fn calculateFeet(length: i32, width: i32, height: i32) i32 {
-    var sides: [3]i32 = .{length, width, height};
+    var sides: [3]i32 = .{ length, width, height };
     sides = bubbleSort(sides.len, sides);
     return sides[0] * 2 + sides[1] * 2 + sides[0] * sides[1] * sides[2];
 }
@@ -51,9 +51,9 @@ pub fn main() void {
 }
 
 test "A present with dimensions `2x3x4` requires a total of `34` feet" {
-   try expect(calculateFeet(2, 3, 4) == 34);
+    try expect(calculateFeet(2, 3, 4) == 34);
 }
 
 test "A present with dimensions `1x1x10` requires a total of `14` feet" {
-   try expect(calculateFeet(1, 1, 10) == 14);
+    try expect(calculateFeet(1, 1, 10) == 14);
 }
