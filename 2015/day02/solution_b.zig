@@ -2,30 +2,9 @@ const std = @import("std");
 const input = @embedFile("./input.txt");
 const expect = std.testing.expect;
 
-fn bubbleSort(comptime length: usize, data: [length]i32) [length]i32 {
-    var sortedData = data;
-    var i: usize = 0;
-    while (i < length) : (i += 1) {
-        var isSwapped = false;
-        var j: usize = 0;
-        while (j < length - i - 1) : (j += 1) {
-            if (sortedData[j] > sortedData[j + 1]) {
-                var tmp = sortedData[j];
-                sortedData[j] = sortedData[j + 1];
-                sortedData[j + 1] = tmp;
-                isSwapped = true;
-            }
-        }
-        if (isSwapped == false) {
-            break;
-        }
-    }
-    return sortedData;
-}
-
 fn calculateFeet(length: i32, width: i32, height: i32) i32 {
-    var sides: [3]i32 = .{ length, width, height };
-    sides = bubbleSort(sides.len, sides);
+    var sides = [_]i32{ length, width, height };
+    std.sort.sort(i32, sides[0..], {}, comptime std.sort.asc(i32));
     return sides[0] * 2 + sides[1] * 2 + sides[0] * sides[1] * sides[2];
 }
 
