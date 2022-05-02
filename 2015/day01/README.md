@@ -32,3 +32,4 @@ For example:
 
 What is the *position* of the character that causes Santa to first enter the basement?
 
+*Source: [Advent of Code 2015](https://adventofcode.com/2015) by [Eric Wastl](https://github.com/topaz) - ♥️ Thank you!*
