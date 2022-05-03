@@ -9,7 +9,7 @@ fn calculateFeet(length: i32, width: i32, height: i32) i32 {
 }
 
 fn getTotalFeet(comptime length: usize, content: *const [length]u8) i32 {
-    var squareFeet: i32 = 0;
+    var feet: i32 = 0;
     var lines = std.mem.tokenize(u8, content, "\r\n");
     while (lines.next()) |line| {
         var numbers = std.mem.tokenize(u8, line, "x");
@@ -20,9 +20,9 @@ fn getTotalFeet(comptime length: usize, content: *const [length]u8) i32 {
             measurements[i] = num;
             i += 1;
         }
-        squareFeet += calculateFeet(measurements[0], measurements[1], measurements[2]);
+        feet += calculateFeet(measurements[0], measurements[1], measurements[2]);
     }
-    return squareFeet;
+    return feet;
 }
 
 pub fn main() void {
