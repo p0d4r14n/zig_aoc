@@ -12,11 +12,10 @@ const House = struct {
     }
 };
 
-
 fn getHousesCount(comptime length: usize, content: *const [length]u8) usize {
     var gpa = std.heap.GeneralPurposeAllocator(.{}){};
     var houses = std.ArrayList(House).init(gpa.allocator());
-    
+
     var x: i32 = 0;
     var y: i32 = 0;
 
